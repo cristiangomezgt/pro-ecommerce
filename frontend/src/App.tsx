@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Home from './pages/home';
 
 type Props = {};
 
@@ -11,7 +12,7 @@ const App = (props: Props) => {
       <Header />
       <main className='py-3'>
         <Container>
-          <h1>Welcome to pro ecommerce</h1>
+          <Home></Home>
         </Container>
       </main>
       <Footer />
