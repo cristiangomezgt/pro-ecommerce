@@ -1,12 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import ProductCard from '../components/ProductCard';
-import products from '../dummy-data/products.js';
 import { Product } from '../types/Product.js';
+import axios from 'axios';
 
-type Props = {};
+const Home: FC = () => {
+  const [products, setProducts] = useState([]);
 
-const Home: FC = (props: Props) => {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('/api/products');
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
   return (
     <>
       <h1>Latest products</h1>
